@@ -53,9 +53,9 @@
 - **gRPC:** RPS = 5.2, Avg = 4.1 мс, p95 = 6 мс, p99 = 8 мс, Ошибки = 0
 
 **Статистика и графики:**
-- ![Статистика выполнения теста Sanity Check](https://screenshots/sanity-stats.png)
+- ![Статистика выполнения теста Sanity Check](screenshots/sanity-stats.png)
   *Рисунок 4.1.1: Статистика выполнения теста Sanity Check*
-- ![Графики RPS и времени отклика для Sanity Check](https://screenshots/sanity-charts.png)
+- ![Графики RPS и времени отклика для Sanity Check](screenshots/sanity-charts.png)
   *Рисунок 4.1.2: Графики RPS и времени отклика для Sanity Check*
 
 **Анализ:** Оба протокола стабильны, ошибок нет. gRPC показывает на 23% выше RPS и на 38% меньшее среднее время ответа в базовом сценарии.
