@@ -75,9 +75,9 @@
 - **gRPC:** RPS = 52.7, Avg = 4.8 мс, p95 = 7 мс, p99 = 10 мс, Ошибки = 0
 
 **Статистика и графики:**
-- ![Статистика выполнения теста Normal Load](https://screenshots/normal-stats.png)
+- ![Статистика выполнения теста Normal Load](screenshots/normal-stats.png)
   *Рисунок 4.2.1: Статистика выполнения теста Normal Load*
-- ![Графики RPS и времени отклика для Normal Load](https://screenshots/normal-charts.png)
+- ![Графики RPS и времени отклика для Normal Load](screenshots/normal-charts.png)
   *Рисунок 4.2.2: Графики RPS и времени отклика для Normal Load*
 
 **Анализ:** При рабочей нагрузке gRPC показывает на 35% выше пропускную способность. Латентность остаётся стабильной для обоих протоколов, что указывает на готовность к эксплуатационной нагрузке.
@@ -97,9 +97,9 @@
 - **gRPC:** RPS = 218.3, Avg = 5.6 мс, p95 = 9 мс, p99 = 15 мс, Ошибки = 0
 
 **Статистика и графики:**
-- ![Статистика выполнения теста Stress Test](https://screenshots/stress-stats.png)
+- ![Статистика выполнения теста Stress Test](screenshots/stress-stats.png)
   *Рисунок 4.3.1: Статистика выполнения теста Stress Test*
-- ![Графики RPS и времени отклика для Stress Test](https://screenshots/stress-charts.png)
+- ![Графики RPS и времени отклика для Stress Test](screenshots/stress-charts.png)
   *Рисунок 4.3.2: Графики RPS и времени отклика для Stress Test*
 
 **Анализ:** gRPC достигает RPS на 39% выше, чем REST. Наблюдается рост p99-латентности: для REST до 19 мс (+90% от базового), для gRPC до 15 мс (+87% от базового). Оба протокола сохраняют стабильность без ошибок.
@@ -119,9 +119,9 @@
 - **gRPC:** RPS = 31.4, Avg = 4.9 мс, p95 = 7 мс, p99 = 10 мс, Ошибки = 0
 
 **Статистика и графики:**
-- ![Статистика выполнения теста Stability Test](https://screenshots/stability-stats.png)
+- ![Статистика выполнения теста Stability Test](screenshots/stability-stats.png)
   *Рисунок 4.4.1: Статистика выполнения теста Stability Test*
-- ![Графики RPS и времени отклика для Stability Test](https://screenshots/stability-charts.png)
+- ![Графики RPS и времени отклика для Stability Test](screenshots/stability-charts.png)
   *Рисунок 4.4.2: Графики RPS и времени отклика для Stability Test*
 
 **Анализ:** За 15 минут теста деградации латентности или роста ошибок не выявлено. Графики показывают стабильную производительность. gRPC сохраняет преимущество в 33% по RPS.
