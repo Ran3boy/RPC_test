@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+package vkr.glossary;
+
+// gRPC glossary for VKR terms.
+// Two-service demo: glossary (gRPC) + web gateway (HTTP).
+
+message Term {
+  string id = 1;                   // UUID
+  string term = 2;                 // Term title
+  string definition = 3;           // Short definition
+  repeated string sources = 4;     // URLs / references
+  repeated string tags = 5;        // e.g. "standard", "framework"
+  repeated string related_ids = 6; // Semantic graph edges
+}
+
+message TermId {
+  string id = 1;
+}
+
+message Empty {}
+
+message UpsertTermRequest {
+  Term term = 1;
+}
+
+message UpsertTermResponse {
+  Term term = 1;
+}
+
+message GetTermResponse {
+  Term term = 1;
+}
+
+message DeleteTermResponse {
+  bool deleted = 1;
+}
+
+message ListTermsRequest {
+  int32 page = 1;       // 1-based
+  int32 page_size = 2;  // default 50
+}
+
+message ListTermsResponse {
+  repeated Term terms = 1;
+  int32 page = 2;
+  int32 page_size = 3;
+  int32 total = 4;
+}
+
+message SearchTermsRequest {
+  string query = 1;
+  int32 limit = 2;
+}
+
+message SearchTermsResponse {
+  repeated Term terms = 1;
+}
+
+message GraphEdge {
+  string from_id = 1;
+  string to_id = 2;
+  string label = 3; // e.g. "relates_to", "implements"
+}
+
+message GetGraphRequest {
+  bool include_orphans = 1;
+}
+
+message GetGraphResponse {
+  repeated Term nodes = 1;
+  repeated GraphEdge edges = 2;
+}
+
+service GlossaryService {
+  rpc UpsertTerm(UpsertTermRequest) returns (UpsertTermResponse);
+  rpc GetTerm(TermId) returns (GetTermResponse);
+  rpc DeleteTerm(TermId) returns (DeleteTermResponse);
+  rpc ListTerms(ListTermsRequest) returns (ListTermsResponse);
+  rpc SearchTerms(SearchTermsRequest) returns (SearchTermsResponse);
+  rpc GetGraph(GetGraphRequest) returns (GetGraphResponse);
+}

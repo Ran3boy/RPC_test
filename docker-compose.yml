@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  glossary:
+    build:
+      context: .
+      dockerfile: glossary_service/Dockerfile
+    image: vkr-glossary-grpc:glossary
+    container_name: vkr_glossary
+    volumes:
+      - glossary_data:/data
+    ports:
+      - "50051:50051"
+
+  web:
+    build:
+      context: .
+      dockerfile: web_gateway/Dockerfile
+    image: vkr-glossary-grpc:web
+    container_name: vkr_glossary_web
+    environment:
+      GLOSSARY_HOST: glossary
+      GLOSSARY_PORT: 50051
+    ports:
+      - "8000:8000"
+    depends_on:
+      - glossary
+
+volumes:
+  glossary_data:
